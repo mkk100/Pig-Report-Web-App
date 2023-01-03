@@ -5,11 +5,13 @@ import { CreatePigReportComponent } from './view2/create-pig-report/create-pig-r
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
-
+import { DelModalComponent } from './view2/pig-report/del-modal/del-modal.component';
+import { EditModalComponent } from './view2/pig-report/edit-modal/edit-modal.component';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 @NgModule({
-  declarations: [CreatePigReportComponent,PigReportComponent],
+  declarations: [CreatePigReportComponent,PigReportComponent, DelModalComponent, EditModalComponent],
   imports: [
-    CommonModule, MatFormFieldModule,MatTableModule, MatIconModule
+    CommonModule, MatFormFieldModule,MatTableModule, MatIconModule, MatDialogModule
   ],
   exports: [
     CreatePigReportComponent,PigReportComponent

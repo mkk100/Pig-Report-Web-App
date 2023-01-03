@@ -14,10 +14,12 @@ import { View1Component } from './custom1/view1/view1.component';
 import { Custom1Module } from './custom1/custom1.module';
 import { View2Component } from './custom2/view2/view2.component';
 import { Custom2Module } from './custom2/custom2.module';
+import { EditModalComponent } from './custom2/view2/pig-report/edit-modal/edit-modal.component';
 
 const appRoute: Routes = [
   { path: '', component: View1Component },
-  { path: 'PigReport', component: View2Component }
+  { path: 'PigReport', component: View2Component },
+  {path: 'edit', component: EditModalComponent}
 ] 
 @NgModule({
   declarations: [
