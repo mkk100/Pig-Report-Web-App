@@ -17,18 +17,24 @@ import { Router } from '@angular/router';
 export class PigReportComponent implements OnInit {
   arr!: info[];
   render_data !: info;
+  index  !: number;
   password: string = "OINK!!";
   press: Boolean = true;
   dataSource = new MatTableDataSource<info>();
   table: info[] = [];
 
-  constructor(private http:HttpClient, private edit: MatDialog, private del: MatDialog, private pd: PigDataService,private router:Router) {
+  constructor(private http: HttpClient, private edit: MatDialog, private del: MatDialog, private pd: PigDataService, private router: Router) {
   }
   editModal() {
     this.edit.open(EditModalComponent)
+
   }
-  delModal() {
-    this.del.open(DelModalComponent)
+  delModal(i: number) {
+    this.index = i;
+    this.del.open(DelModalComponent, {
+      data: this.index
+    })
+
   }
 
   ngOnInit(): void {
@@ -47,8 +53,8 @@ export class PigReportComponent implements OnInit {
       }
     })
   }
-  onEdit(evt: any, ind: string){
-    this.router.navigate(["/edit",ind])
+  onEdit(evt: any, ind: string) {
+    this.router.navigate(["/edit", ind])
   }
   add() {
 
@@ -59,10 +65,7 @@ export class PigReportComponent implements OnInit {
 
   }
   displayedColumns: string[] = ['ID', 'breed', 'reporter', 'Time', 'status', 'delete', 'edit'];
-  loadWindow(): void {
-    window.location.reload();
-  }
-  remove(i:number){
+  remove(i: number) {
     this.pd.remove(i);
   }
   toggle() {
