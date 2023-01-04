@@ -6,7 +6,6 @@ import { info } from './pigInformation';
 import { MatDialog } from '@angular/material/dialog';
 import { EditModalComponent } from './edit-modal/edit-modal.component';
 import { DelModalComponent } from './del-modal/del-modal.component';
-
 @Component({
   selector: 'app-pig-report',
   templateUrl: './pig-report.component.html',

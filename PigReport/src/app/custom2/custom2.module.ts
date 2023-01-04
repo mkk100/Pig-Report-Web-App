@@ -11,7 +11,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 @NgModule({
   declarations: [CreatePigReportComponent,PigReportComponent, DelModalComponent, EditModalComponent],
   imports: [
-    CommonModule, MatFormFieldModule,MatTableModule, MatIconModule, MatDialogModule
+    CommonModule, MatFormFieldModule,MatTableModule, MatIconModule, MatDialogModule, MatFormFieldModule
   ],
   exports: [
     CreatePigReportComponent,PigReportComponent
