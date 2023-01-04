@@ -32,7 +32,7 @@ export class PigReportComponent implements OnInit {
   delModal(i: number) {
     this.index = i;
     this.del.open(DelModalComponent, {
-      data: this.index
+      data: this.table[i]["pigID"]
     })
 
   }
