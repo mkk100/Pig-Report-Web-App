@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Coordinates } from 'src/app/custom1/view1/add-location/coordinates';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { MatTableDataSource } from '@angular/material/table';
 import { info } from './pigInformation';
 import { MatDialog } from '@angular/material/dialog';
 import { EditModalComponent } from './edit-modal/edit-modal.component';
 import { DelModalComponent } from './del-modal/del-modal.component';
+import { PigDataService } from './pig-data.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-pig-report',
   templateUrl: './pig-report.component.html',
@@ -13,12 +15,14 @@ import { DelModalComponent } from './del-modal/del-modal.component';
 })
 
 export class PigReportComponent implements OnInit {
+  arr!: info[];
   render_data !: info;
   password: string = "OINK!!";
   press: Boolean = true;
   dataSource = new MatTableDataSource<info>();
   table: info[] = [];
-  constructor(private http: HttpClient, private edit: MatDialog, private del: MatDialog) {
+
+  constructor(private http:HttpClient, private edit: MatDialog, private del: MatDialog, private pd: PigDataService,private router:Router) {
   }
   editModal() {
     this.edit.open(EditModalComponent)
@@ -26,11 +30,10 @@ export class PigReportComponent implements OnInit {
   delModal() {
     this.del.open(DelModalComponent)
   }
-  arr!: info[];
+
   ngOnInit(): void {
     this.http.get<info[]>('https://272.selfip.net/apps/VTJlUDzrwx/collections/272-PigInfo/documents/').subscribe((data: any) => {
       this.arr = data;
-      console.log(data[0])
       for (let i: number = 0; i < this.arr.length; i++) {
         this.render_data = {
           date: data[i]["data"]["Time"],
@@ -44,8 +47,9 @@ export class PigReportComponent implements OnInit {
       }
     })
   }
-
-
+  onEdit(evt: any, ind: string){
+    this.router.navigate(["/edit",ind])
+  }
   add() {
 
   }
@@ -58,10 +62,8 @@ export class PigReportComponent implements OnInit {
   loadWindow(): void {
     window.location.reload();
   }
-  remove(i: number) {
-    this.http.delete<info>("https://272.selfip.net/apps/VTJlUDzrwx/collections/272-PigInfo/" + this.table[i].pigID)
-    delete this.table[i];
-    this.dataSource.data = this.table;
+  remove(i:number){
+    this.pd.remove(i);
   }
   toggle() {
     this.press = !this.press;

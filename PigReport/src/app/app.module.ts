@@ -19,7 +19,7 @@ import { EditModalComponent } from './custom2/view2/pig-report/edit-modal/edit-m
 const appRoute: Routes = [
   { path: '', component: View1Component },
   { path: 'PigReport', component: View2Component },
-  {path: 'edit', component: EditModalComponent}
+  {path: 'edit/:pigID', component: EditModalComponent}
 ] 
 @NgModule({
   declarations: [
