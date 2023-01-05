@@ -1,8 +1,13 @@
 <body>
   <div id="mapid" gmap style="width:100%; height: 650px"></div>
-  <app-add-location #coordinates></app-add-location>
+  <div>
+    <app-add-location #coordinates></app-add-location>
+  </div>
   <section>
-    <button class="btn btn-primary" type="button" (click)="addLocation(coordinates.location())">Add Location</button>
+    <button class="btn btn-primary" type="button" (click)="addLocation(coordinates.location())">Add
+      Location</button>
   </section>
-  <a href="/PigReport" class="btn btn-link">Go To Report -></a>
+  <div>
+    <a href="/PigReport" class="btn btn-link">Go To Report -></a>
+  </div>
 </body>

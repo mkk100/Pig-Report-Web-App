@@ -1,6 +1,6 @@
 # PigReport
+The Pig Report contains functionalities such as adding location on Leaflet map api, adding pigs into the form and database which is implemented using mat-form, deleting pigs from the database. The concepts include but not limited to routing, components, bootstrap, modals, http calls and many more. 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
 
 ## Development server
 
