@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { OutletContext } from '@angular/router';
 import { Coordinates } from './coordinates';
+import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-add-location',
   templateUrl: './add-location.component.html',
@@ -10,13 +11,13 @@ export class AddLocationComponent implements OnInit {
   // @Input() place: Coordinates = this.location();
   @Output() places = new EventEmitter<Coordinates>();
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    
+
   }
 
-  location(){
+  location() {
     const data: Coordinates = {
       place: (<HTMLInputElement>document.getElementById("place")).value,
       latitude: Number((<HTMLInputElement>document.getElementById("lat")).value),

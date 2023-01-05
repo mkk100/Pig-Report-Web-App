@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input } from '@angular/core';
 import * as L from 'leaflet';
+import { OnInit } from '@angular/core';
 import { icon, Marker } from 'leaflet';
 import { Coordinates } from './add-location/coordinates';
 import { HttpClient } from '@angular/common/http';
@@ -23,18 +24,20 @@ Marker.prototype.options.icon = iconDefault;
   templateUrl: './view1.component.html',
   styleUrls: ['./view1.component.css']
 })
-export class View1Component implements AfterViewInit {
+export class View1Component implements AfterViewInit,OnInit {
 
   location!: Coordinates;
-
+  arr: any;
   private map: any;
   constructor(private http: HttpClient) { }
-  ngOnint(): void {
-    this.http.get<Coordinates>('/apps/VTJlUDzrwx/collections/272-Locations/documents/')
-      .subscribe((data: any) => {
-        console.log(data)
-      })
-
+  ngOnInit() {
+    this.http.get<any>("https://272.selfip.net/apps/VTJlUDzrwx/collections/272-data/documents/").subscribe((data: any) => {
+      this.arr = data;
+      for(let i:number = 0; i < this.arr.length;i++){
+        console.log(this.arr[i])
+          L.marker([this.arr[i]['data']['latitude'], this.arr[i]['data']['longtitude']]).addTo(this.map).bindPopup(`<b> ${this.arr[i]['key']}</b><br/>cases reported.`).openPopup();
+      }
+    })
   }
   ngAfterViewInit(): void {
     this.map = L.map('mapid').setView([19.2, -123], 11);
