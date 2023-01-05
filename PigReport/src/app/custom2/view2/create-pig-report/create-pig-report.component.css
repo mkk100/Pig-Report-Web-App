@@ -1,6 +1,9 @@
 
-section{
-    width: 30%;
-    display:block;
+body{
+    display:flex;
+    justify-content: center;
     text-align: center;
+}
+section{
+    margin-top: 13%;
 }

@@ -19,8 +19,9 @@ import { EditModalComponent } from './custom2/view2/pig-report/edit-modal/edit-m
 const appRoute: Routes = [
   { path: '', component: View1Component },
   { path: 'PigReport', component: View2Component },
-  {path: 'edit/:pigID', component: EditModalComponent}
-] 
+  { path: 'edit/:pigID', component: EditModalComponent },
+  { path: 'addpig', component: CreatePigReportComponent }
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,7 @@ const appRoute: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule, 
+    NgbModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatTableModule,
@@ -39,6 +40,6 @@ const appRoute: Routes = [
     RouterModule.forRoot(appRoute)
   ],
   providers: [],
-  bootstrap: [AppComponent,View1Component,View2Component]
+  bootstrap: [AppComponent, View1Component, View2Component]
 })
 export class AppModule { }

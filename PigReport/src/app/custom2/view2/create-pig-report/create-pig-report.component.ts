@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { info } from '../pig-report/pigInformation';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-pig-report',
   templateUrl: './create-pig-report.component.html',
@@ -9,7 +10,7 @@ import { info } from '../pig-report/pigInformation';
 
 export class CreatePigReportComponent implements OnInit {
   pinfo!: info;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router:Router) { }
 
   ngOnInit(): void {
     // this.pigForm = this.formBuild.group({
@@ -31,9 +32,10 @@ export class CreatePigReportComponent implements OnInit {
     }).subscribe((data: any) => {
       console.log(data)
     });
+    this.router.navigate(["/PigReport"])
   }
   loadWindow(): void {
-    window.location.reload();
+    //window.location.reload();
   }
 
 }
