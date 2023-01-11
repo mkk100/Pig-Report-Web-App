@@ -44,7 +44,7 @@
         <ng-container matColumnDef="edit" *ngIf="press">
             <th mat-header-cell *matHeaderCellDef></th>
             <td mat-cell *matCellDef="let element">
-                <a class="btn btn-secondary" href = '/edit' (click)="onEdit($event,element.pigID)">Edit
+                <a class="btn btn-secondary"  (click)="onEdit($event,element.pigID)">Edit
                 </a>
             </td>
         </ng-container>

@@ -33,6 +33,7 @@ export class CreatePigReportComponent implements OnInit {
       console.log(data)
     });
     this.router.navigate(["/PigReport"])
+
   }
   loadWindow(): void {
     //window.location.reload();
