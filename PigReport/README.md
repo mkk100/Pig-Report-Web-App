@@ -1,5 +1,5 @@
 # PigReport
-The Pig Report contains functionalities such as adding location on Leaflet map api, adding pigs into the form and database which is implemented using mat-form, deleting pigs from the database. The concepts include but not limited to routing, components, bootstrap, modals, http calls and many more. 
+The Pig Report contains functionalities such as adding location on Leaflet map api, adding pigs into the form and database which is implemented using mat-form, deleting pigs from the database. The concepts include but not limited to routing, components, bootstrap, modals, http calls and dependency injections. 
 
 Adding Location on Leaflet API
 ![Screenshot 2023-01-05 at 11 50 39 AM](https://user-images.githubusercontent.com/112575297/210868169-5f6d6460-bd53-4820-8669-8a92f91dc1a4.png)
